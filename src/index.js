@@ -123,6 +123,8 @@ export default class Lottie extends React.Component {
       ariaLabel,
       isClickToPauseDisabled,
       title,
+      style,
+      tabIndex
     } = this.props;
 
     const getSize = (initial) => {
@@ -141,7 +143,7 @@ export default class Lottie extends React.Component {
       width: getSize(width),
       height: getSize(height),
       overflow: 'hidden',
-      margin: '0 auto',
+      ...style
     };
 
     const onClickHandler = isClickToPauseDisabled ? () => null : this.handleClickToPause;
@@ -158,7 +160,7 @@ export default class Lottie extends React.Component {
         title={title}
         role={ariaRole}
         aria-label={ariaLabel}
-        tabIndex="0"
+        tabIndex={tabIndex}
       />
     );
   }
@@ -178,6 +180,8 @@ Lottie.propTypes = {
   ariaLabel: PropTypes.string,
   isClickToPauseDisabled: PropTypes.bool,
   title: PropTypes.string,
+  style: PropTypes.object,
+  tabIndex: PropTypes.string,
 };
 
 Lottie.defaultProps = {
@@ -189,4 +193,6 @@ Lottie.defaultProps = {
   ariaLabel: 'animation',
   isClickToPauseDisabled: false,
   title: '',
+  style: {},
+  tabIndex: ''
 };
