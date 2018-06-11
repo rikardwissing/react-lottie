@@ -146,7 +146,7 @@ var Lottie = function (_React$Component) {
   }, {
     key: 'playSegments',
     value: function playSegments() {
-      this.anim.playSegments(this.props.segments);
+      this.anim.playSegments(this.props.segments, true);
     }
   }, {
     key: 'stop',
